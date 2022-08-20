@@ -24,6 +24,8 @@ vzhooh.code-workspace
 node_modules
 npm-debug.log
 
+.next/
+
 dist/
 packages/
 .report/
@@ -51,3 +53,5 @@ packages/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
