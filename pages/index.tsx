@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import styles from '../styles/index.module.scss';
 import { Post } from '../components/Post';
 import React, { useEffect, useState } from 'react';
-import { useQuery } from '@apollo/client';
+import { useQuery, useSubscription } from '@apollo/client';
 import { GET_POSTS } from '../apollo/query/posts';
 import { client } from '../apollo/client';
 import { useAuth } from '../hooks/useAuth';
@@ -12,6 +12,7 @@ import modal from '../styles/modal.module.scss';
 import { LOGIN } from '../apollo/mutation/login';
 import { REGISTER } from '../apollo/mutation/register';
 import { NEW_POST } from '../apollo/mutation/newPost';
+import { NEW_LINK } from '../apollo/subscription/newLink';
 
 enum ModalContent {
     NewPost,
@@ -58,13 +59,13 @@ const MainPage: NextPage<{data: any}> = ({data}): JSX.Element => {
     const [posts, setPosts] = useState<[any]>(data.feed.links);
     const [search, setSearch] = useState<string>('');
 
-    console.log(data)
-
     const delayed = useDelay(search);
 
     const {token, login, logout} = useAuth();
 
     const {data: newData, loading, error, refetch} = useQuery(GET_POSTS, {variables: {description: delayed}});
+
+    const {data: newLink} = useSubscription(NEW_LINK);
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setSearch(event.target.value);
@@ -73,6 +74,10 @@ const MainPage: NextPage<{data: any}> = ({data}): JSX.Element => {
     useEffect(() => {
         if (!loading && !error) setPosts(newData.feed.links);
     }, [newData]);
+
+    useEffect(() => {
+        if (newLink) console.log(newLink)
+    }, [newLink])
 
     const getModalContent = (): JSX.Element => {
         switch (modalContent) {

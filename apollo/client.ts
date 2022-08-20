@@ -1,10 +1,3 @@
-/*import { ApolloClient, InMemoryCache } from '@apollo/client';
-
-export const client = new ApolloClient({
-    uri: 'https://api.vrmarketing.guru/',
-    cache: new InMemoryCache()
-});*/
-
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
