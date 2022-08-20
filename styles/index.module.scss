@@ -1,0 +1,60 @@
+.header {
+  height: 49px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #dae0e6;
+  border-bottom: 1px solid #edeff1;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+
+  .search {
+    background-color: white;
+    width: 45%;
+    height: 35px;
+    margin-top: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.51);
+    border-radius: 5px;
+    padding: 0 10px;
+    color: rgba(0, 0, 0, 0.08)
+  }
+
+  .buttons-wrapper {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+
+    .button-left {
+      margin-right: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    justify-content: left;
+
+    .search {
+      margin-left: 15px;
+    }
+
+    .buttons-wrapper {
+      top: 2px;
+      right: 2px;
+
+      .button-left, .button-right {
+        width: 50px;
+        font-size: 9px;
+      }
+
+      .button-left {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.main {
+  margin-top: 100px;
+}

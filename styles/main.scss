@@ -1,0 +1,38 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
+
+  .MuiButtonBase-root {
+    &.MuiButton-containedPrimary {
+      background-color: #fff;
+      color: rgb(107, 107, 107);
+      box-shadow: none;
+
+      &:hover {
+        background-color: rgba(#fff, 0.8);
+      }
+    }
+
+    &.MuiButton-containedSecondary {
+      background-color: rgb(107, 107, 107);
+      color: #fff;
+      box-shadow: none;
+
+      &:hover {
+        background-color: rgba(rgb(107, 107, 107), 0.8);
+      }
+    }
+
+    &.MuiButton-outlinedPrimary {
+      border-color: rgb(107, 107, 107);
+      color: rgb(107, 107, 107);
+      box-shadow: none;
+
+      &:hover {
+        border-color: rgb(107, 107, 107);
+        background-color: rgba(#fff, 0.1);
+      }
+    }
+  }
+}
