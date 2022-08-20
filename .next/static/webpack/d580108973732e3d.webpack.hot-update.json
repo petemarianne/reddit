@@ -1,1 +1,0 @@
-{"c":["pages/index","webpack"],"r":[],"m":["./mutation/login.ts","./mutation/newPost.ts","./mutation/register.ts","./mutation/upvote.ts","./query/posts.ts"]}
